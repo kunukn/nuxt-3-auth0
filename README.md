@@ -1,75 +1,32 @@
-# Nuxt 3 Minimal Starter
+# nuxt-3-auth0
+Playground for Nuxt 3 + Auth0
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+`@auth0/auth0-vue` is used.
 
-## Setup
+# Getting started
 
-Make sure to install the dependencies:
+## Prerequisite
+
+- You need to have an Auth0 app.
+- The `.env` must be updated with values from the Auth0 settings.
+
+## Install steps:
 
 ```bash
-# npm
+# Ensure you have mkcert installed to use https in localhost. https://github.com/FiloSottile/mkcert
+
 npm install
 
-# pnpm
-pnpm install
+npm run create-env # creates a boilerplate .env file
+# Update the .env file with your Auth0 config data.
 
-# yarn
-yarn install
+npm run install-mkcert # Done once per OS, skip if has been done for your OS.
 
-# bun
-bun install
+npm run create-cert-files-in-folder # Creates the localhost certificates.
+
+npm start # Starts the app using https.
 ```
 
-## Development Server
+## Thoughts
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+You can use `'@auth0/auth0-spa-js'` and create a Vue wrapper if `@auth0/auth0-vue` is lacking req. features.

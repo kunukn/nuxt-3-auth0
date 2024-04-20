@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "create-env": "node create-env-file.js",
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --dotenv .env --open",
     "start": "npm run dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -30,5 +31,6 @@
     "axios": "^1.6.8",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3"
-  }
+  },
+  "resolutions": {}
 }
