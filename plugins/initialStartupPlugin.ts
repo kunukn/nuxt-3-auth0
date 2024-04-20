@@ -1,3 +1,7 @@
 export default defineNuxtPlugin((nuxtApp) => {
-  console.log('initialStartupPlugin', Date.now())
+  if (process.server && process.env.NODE_ENV !== 'test') return {}
+
+  console.log('initialStartupPlugin', new Date())
+
+  return {}
 })

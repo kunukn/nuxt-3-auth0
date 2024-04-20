@@ -1,15 +1,16 @@
 <script>
 import { defineComponent } from '@vue/composition-api'
-import { useAuth0 } from '@auth0/auth0-vue'
 
 export default defineComponent({
   setup() {
-    const { loginWithRedirect, isLoading, isAuthenticated, user } = useAuth0()
+    const nuxtApp = useNuxtApp()
+    const $auth0 = nuxtApp.$auth0
+
     return {
-      loginWithRedirect,
-      isLoading,
-      isAuthenticated,
-      user,
+      isLoading: $auth0.isLoading,
+      isAuthenticated: $auth0.isAuthenticated,
+      user: $auth0.user,
+      $auth0,
     }
   },
 })
@@ -17,8 +18,9 @@ export default defineComponent({
 
 <template>
   <div>
-    <p>isLoading: {{isLoading}}</p>
-    <p>isAuthenticated: {{isAuthenticated}}</p>
-    <p>user: {{user}}</p>
+    <p>isLoading: {{ isLoading }}</p>
+    <p>isAuthenticated: {{ isAuthenticated }}</p>
+    <p>user: {{ user }}</p>
+    <pre>{{ $auth0 }}</pre>
   </div>
 </template>

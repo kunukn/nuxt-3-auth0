@@ -1,33 +1,27 @@
-import Vue from 'vue'
+import Global from '~/Global'
 import { createAuth0 } from '@auth0/auth0-vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
+  if (process.server && process.env.NODE_ENV !== 'test') return {}
+
   const runtimeConfig = useRuntimeConfig()
-  console.log('auth0Plugin', Date.now())
+  console.log('auth0Plugin', new Date())
 
-  const config = unwrap(runtimeConfig.public.auth0)
-
-  const auth0Config = createAuthConfig(config)
-  let auth0 = createAuth0(auth0Config)
-
+  const auth0Config = createAuthConfig(unwrap(runtimeConfig.public.auth0))
   console.table(auth0Config)
-
-  let v = Vue.default || Vue
-
-  v.use(auth0.default || auth0)
-
+  const $auth0 = createAuth0(auth0Config)
+  Global.$auth0 = $auth0
   // now available on `nuxtApp.$auth0`
-  // return {
-  //   provide: {
-  //     auth0: () => auth0,
-  //   },
-  // }
+  return {
+    provide: {
+      auth0: $auth0,
+    },
+  }
 })
 
 function createAuthConfig(config: any) {
   let {
     domain,
-    domainUrl,
     clientId,
     cacheLocation,
     useRefreshTokens,
@@ -39,7 +33,7 @@ function createAuthConfig(config: any) {
 
   return {
     domain,
-    domainUrl,
+    domainUrl: `https://${domain}`,
     clientId,
     cacheLocation,
     useRefreshTokens,
