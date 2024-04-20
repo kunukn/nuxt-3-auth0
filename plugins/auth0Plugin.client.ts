@@ -2,14 +2,17 @@ import Global from '~/Global'
 import { createAuth0 } from '@auth0/auth0-vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  if (process.server && process.env.NODE_ENV !== 'test') return {}
-
-  const runtimeConfig = useRuntimeConfig()
   console.log('auth0Plugin', new Date())
 
+  // Config parsing
+  const runtimeConfig = useRuntimeConfig()
   const auth0Config = createAuthConfig(unwrap(runtimeConfig.public.auth0))
   console.table(auth0Config)
   const $auth0 = createAuth0(auth0Config)
+
+  // Install the plugin
+   nuxtApp.vueApp.use($auth0) // The Crux
+  
   Global.$auth0 = $auth0
   // now available on `nuxtApp.$auth0`
   return {
@@ -41,7 +44,7 @@ function createAuthConfig(config: any) {
     authorizationParams: {
       scope,
       audience,
-      redirect_uri: `${self.location.origin}${redirect_uri}`,
+      redirect_uri: `${window.location.origin}${redirect_uri}`,
     },
   }
 }

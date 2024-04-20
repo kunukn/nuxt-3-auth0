@@ -29,5 +29,4 @@ export default defineNuxtConfig({
       cert: './.cert/cert.pem',
     },
   },
-  plugins: ['~/plugins/initialStartupPlugin', '~/plugins/auth0Plugin'],
 })
