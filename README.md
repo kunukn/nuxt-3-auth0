@@ -5,6 +5,10 @@ Playground for Nuxt 3 + Auth0
 
 # Getting started
 
+App Demo
+
+![app demo](./wiki/images/app-demo.png)
+
 ## Auth flow in this demo.
 
 Authorize Code with PKCE.
