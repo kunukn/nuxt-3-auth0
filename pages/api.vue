@@ -32,20 +32,10 @@ definePageMeta({
   middleware: ['auth'],
 })
 
-async function addTodo() {
-  const todo = await $fetch('/api/todos', {
-    method: 'POST',
-    body: {
-      // My todo data
-    },
-  })
-}
-
 export default {
   setup() {
     const runtimeConfig = useRuntimeConfig()
-    const baseApiUrl = runtimeConfig.public.apiBase
-    console.log(baseApiUrl)
+    const { baseURL } = runtimeConfig.public
 
     const auth0 = useAuth0()
     const apiMessage = ref('')
@@ -61,18 +51,18 @@ export default {
         const accessToken = await auth0.getAccessTokenSilently()
         token.value = accessToken
         try {
-          const url = `${baseApiUrl}/v2/users/me`
+          const url = `/v2/users/me`
           const response = await $fetch(url, {
+            baseURL,
             headers: {
               Authorization: `Bearer ${accessToken}`,
               DEBUG_CURRENT_DATE: '',
             },
           })
 
-          console.log(response)
-
-          //apiMessage.value = response.data
-        } catch (e) {
+          // @ts-ignore
+          apiMessage.value = response
+        } catch (e: any) {
           apiMessage.value = `Error: the server responded with '${e.response.status}: ${e.response.statusText}'`
         }
       },
@@ -83,25 +73,19 @@ export default {
         token.value = accessToken
         try {
           const url = urlText.value
+
           const result = await $fetch(url, {
-            baseURL: baseApiUrl,
+            method: 'GET',
+            baseURL,
             headers: {
               Authorization: `Bearer ${accessToken}`,
               DEBUG_CURRENT_DATE: '',
             },
           })
 
-          // const response = await $fetch(url, {
-          //   headers: {
-          //     Authorization: `Bearer ${accessToken}`,
-          //     DEBUG_CURRENT_DATE: '',
-          //   },
-          // })
-
-          console.log(result)
-
-          // apiMessage.value = data
-        } catch (e) {
+          // @ts-ignore
+          apiMessage.value = result
+        } catch (e: any) {
           apiMessage.value = `Error: the server responded with '${e.response.status}: ${e.response.statusText}'`
         }
       },
