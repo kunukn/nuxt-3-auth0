@@ -7,11 +7,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-export default defineComponent({
-  onMounted() {
-    console.log('default layout')
-  },
-})
-</script>
