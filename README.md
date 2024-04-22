@@ -37,6 +37,10 @@ You can use `'@auth0/auth0-spa-js'` and create a Vue wrapper if `@auth0/auth0-vu
 
 # Auth setup
 
+https://auth0.com/
+
+Login or create an account.
+
 ![Create a new SPA application](./wiki/images/create-app-spa.png)
 
 ![url-setup-spa](./wiki/images/url-setup-spa.png)
