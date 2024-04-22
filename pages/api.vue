@@ -2,12 +2,13 @@
   <div>
     <div>
       <h1>External API</h1>
-      <p>
+      <p class="mb-16px">
         Call an external API by clicking the button below. This will call the
         external API using an access token, and the API will validate it using
         the API's audience value.
       </p>
 
+      <p>{{ baseURL }}</p>
       <input type="text" v-model="urlText" @keyup.enter="callUrl" />
       <button @click="callUrl">GET</button>
     </div>
@@ -43,6 +44,7 @@ export default {
       apiMessage,
       token,
       urlText,
+      baseURL,
 
       async callUrl() {
         apiMessage.value = ''

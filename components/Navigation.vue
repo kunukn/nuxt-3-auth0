@@ -1,8 +1,8 @@
 <template>
   <nav>
+    <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
     <NuxtLink to="/">Home</NuxtLink>
     <NuxtLink to="/api">API</NuxtLink>
-    <NuxtLink to="/login">Login</NuxtLink>
     <p class="text-info">isAuthenticated: {{ isAuthenticated }}</p>
     <div v-if="isAuthenticated" class="logout">
       <button @click="clickLogout">Logout</button>
