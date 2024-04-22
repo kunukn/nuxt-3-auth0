@@ -1,6 +1,6 @@
 <script lang="ts">
 export default defineComponent({
-  onMounted() {
+  mounted() {
     console.log('callback page')
   },
 })

@@ -5,9 +5,13 @@ Playground for Nuxt 3 + Auth0
 
 # Getting started
 
+## Auth flow
+
+Authorize Code with PKCE.
+
 ## Prerequisite
 
-- You need to have an Auth0 app.
+- You need to have an Auth0 account with Auth0 apps.
 - The `.env` must be updated with values from the Auth0 settings.
 
 ## Install steps:
@@ -30,3 +34,15 @@ npm start # Starts the app using https.
 ## Thoughts
 
 You can use `'@auth0/auth0-spa-js'` and create a Vue wrapper if `@auth0/auth0-vue` is lacking req. features.
+
+# Auth setup
+
+![Create a new SPA application](./wiki/images/create-app-spa.png)
+
+![url-setup-spa](./wiki/images/url-setup-spa.png)
+
+![new-api.png](./wiki/images/new-api.png)
+
+![applications-updated](./wiki/images/applications-updated.png)
+
+![my-app-authorized](./wiki/images/my-app-authorized.png)

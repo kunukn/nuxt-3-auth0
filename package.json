@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-3-auth0",
   "private": true,
   "type": "module",
   "scripts": {
