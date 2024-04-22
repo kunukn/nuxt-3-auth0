@@ -18,7 +18,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return fn()
   }
 
-  watch(auth.isLoading.value, async (current, previous) => {
+  watch(auth.isLoading, async (current, previous) => {
     if (current === false) {
       return fn()
     }
