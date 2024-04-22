@@ -1,0 +1,40 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:root {
+}
+
+html {
+  height: 100%;
+  font-size: 100%;
+  height: -webkit-fill-available;
+  writing-mode: horizontal-tb;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: contain; /* Disable pull-to-refresh. */
+  font: 1.6rem / 1.5 sans-serif;
+  overflow-y: scroll;
+}
+
+pre {
+  font-size: 14px;
+}
+
+button {
+  border: 1px solid;
+  padding: 4px;
+}
+
+.page {
+  padding: 16px;
+}

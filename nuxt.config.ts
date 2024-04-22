@@ -29,4 +29,5 @@ export default defineNuxtConfig({
       cert: './.cert/cert.pem',
     },
   },
+  css: ['~/assets/css/ress.min.css', '~/assets/css/main.css'],
 })
