@@ -1,4 +1,5 @@
 <template>
+  <p class="id-info">domain: {{ domain }}</p>
   <nav>
     <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
     <NuxtLink to="/">Home</NuxtLink>
@@ -16,11 +17,13 @@ import { useAuth0 } from '@auth0/auth0-vue'
 export default {
   setup() {
     const { logout, isLoading, isAuthenticated, user } = useAuth0()
+    const runtimeConfig = useRuntimeConfig() // Nuxt runtime config
 
     return {
       isLoading,
       isAuthenticated,
       user,
+      domain: runtimeConfig.public.auth0.domain,
       clickLogout: () => {
         logout({
           logoutParams: {
@@ -51,5 +54,10 @@ button {
 .text-info {
   margin-left: auto;
   font-size: 14px;
+}
+
+.id-info {
+  font-size: 14px;
+  padding: 4px;
 }
 </style>

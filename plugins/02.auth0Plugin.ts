@@ -16,7 +16,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Install the plugin
   nuxtApp.vueApp.use(auth0) // The Crux
-  Global.$auth0 = useAuth0()
+  // @ts-ignore
+  Global.$auth0 = useAuth0() // After install, it can be used correctly.
 })
 
 function createAuthConfig(config: any) {
@@ -41,7 +42,7 @@ function createAuthConfig(config: any) {
     authorizationParams: {
       scope,
       audience,
-      redirect_uri: `${window.location.origin}${redirect_uri}`,
+      redirect_uri: `${self.location.origin}${redirect_uri}`,
     },
   }
 }
