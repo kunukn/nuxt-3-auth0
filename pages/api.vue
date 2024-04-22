@@ -38,8 +38,8 @@ export default {
     const { baseURL } = runtimeConfig.public
 
     const auth0 = useAuth0()
-    const apiMessage = ref('')
-    const token = ref('')
+    const apiMessage = ref()
+    const token = ref()
     const urlText = ref('/appsettings')
     return {
       apiMessage,
@@ -60,7 +60,6 @@ export default {
             },
           })
 
-          // @ts-ignore
           apiMessage.value = response
         } catch (e: any) {
           apiMessage.value = `Error: the server responded with '${e.response.status}: ${e.response.statusText}'`
@@ -83,7 +82,6 @@ export default {
             },
           })
 
-          // @ts-ignore
           apiMessage.value = result
         } catch (e: any) {
           apiMessage.value = `Error: the server responded with '${e.response.status}: ${e.response.statusText}'`
