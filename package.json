@@ -1,6 +1,5 @@
 {
-  "name": "nuxt-3-auth0",
-  "private": true,
+  "name": "@not-published/nuxt-3-auth0",
   "type": "module",
   "scripts": {
     "create-env": "node create-env-file.js",
