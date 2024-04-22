@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     // Keys within public, will be also exposed to the client-side
     public: {
       apiBase: process.env.NUXT_ENV_BASE_API_URL,
+      baseURL: process.env.NUXT_ENV_BASE_API_URL,
       auth0: {
         domain: process.env.NUXT_ENV_AUTH0_DOMAIN,
         domainUrl: process.env.NUXT_ENV_AUTH0_DOMAIN_URL,
@@ -23,6 +24,9 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
+  modules: [
+    '@nuxt/devtools',
+  ],
   devServer: {
     https: {
       key: './.cert/key.pem',
@@ -30,4 +34,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/ress.min.css', '~/assets/css/main.css'],
+  router: {
+    middleware: ['router'],
+  },
 })

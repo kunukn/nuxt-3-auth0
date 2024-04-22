@@ -23,17 +23,29 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
 import { ref } from 'vue'
-import axios from 'axios'
 
-// authenticated-layout
+definePageMeta({
+  layout: 'navigation-bar-layout',
+  middleware: ['auth'],
+})
+
+async function addTodo() {
+  const todo = await $fetch('/api/todos', {
+    method: 'POST',
+    body: {
+      // My todo data
+    },
+  })
+}
 
 export default {
   setup() {
     const runtimeConfig = useRuntimeConfig()
     const baseApiUrl = runtimeConfig.public.apiBase
+    console.log(baseApiUrl)
 
     const auth0 = useAuth0()
     const apiMessage = ref('')
@@ -50,14 +62,16 @@ export default {
         token.value = accessToken
         try {
           const url = `${baseApiUrl}/v2/users/me`
-          const response = await axios.get(url, {
+          const response = await $fetch(url, {
             headers: {
               Authorization: `Bearer ${accessToken}`,
               DEBUG_CURRENT_DATE: '',
             },
           })
 
-          apiMessage.value = response.data
+          console.log(response)
+
+          //apiMessage.value = response.data
         } catch (e) {
           apiMessage.value = `Error: the server responded with '${e.response.status}: ${e.response.statusText}'`
         }
@@ -68,15 +82,25 @@ export default {
         const accessToken = await auth0.getAccessTokenSilently()
         token.value = accessToken
         try {
-          const url = `${baseApiUrl}${urlText.value}`
-          const response = await axios.get(url, {
+          const url = urlText.value
+          const result = await $fetch(url, {
+            baseURL: baseApiUrl,
             headers: {
               Authorization: `Bearer ${accessToken}`,
               DEBUG_CURRENT_DATE: '',
             },
           })
 
-          apiMessage.value = response.data
+          // const response = await $fetch(url, {
+          //   headers: {
+          //     Authorization: `Bearer ${accessToken}`,
+          //     DEBUG_CURRENT_DATE: '',
+          //   },
+          // })
+
+          console.log(result)
+
+          // apiMessage.value = data
         } catch (e) {
           apiMessage.value = `Error: the server responded with '${e.response.status}: ${e.response.statusText}'`
         }

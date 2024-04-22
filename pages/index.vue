@@ -1,5 +1,4 @@
-<script>
-import { defineComponent } from '@vue/composition-api'
+<script lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
 
 definePageMeta({
@@ -20,7 +19,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>
+  <div class="user-info">
     <p>isLoading: {{ isLoading }}</p>
     <p>isAuthenticated: {{ isAuthenticated }}</p>
     <p>user: {{ user }}</p>
@@ -28,7 +27,7 @@ export default defineComponent({
 </template>
 
 <style scoped>
-pre {
-  font-size: 12px;
+.user-info {
+  font-size: 14px;
 }
 </style>

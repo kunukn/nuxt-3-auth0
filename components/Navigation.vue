@@ -3,13 +3,14 @@
     <NuxtLink to="/">Home</NuxtLink>
     <NuxtLink to="/api">API</NuxtLink>
     <NuxtLink to="/login">Login</NuxtLink>
-    <div class="logout">
-      <button v-if="isAuthenticated" @click="clickLogout">Logout</button>
+    <p class="text-info">isAuthenticated: {{ isAuthenticated }}</p>
+    <div v-if="isAuthenticated" class="logout">
+      <button @click="clickLogout">Logout</button>
     </div>
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
 
 export default {
@@ -47,7 +48,8 @@ button {
   padding: 4px;
 }
 
-.logout {
+.text-info {
   margin-left: auto;
+  font-size: 14px;
 }
 </style>

@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
 
-export default {
+export default defineComponent({
   setup() {
     const { loginWithRedirect, isLoading, isAuthenticated, user } = useAuth0()
 
@@ -39,11 +39,13 @@ export default {
       },
     }
   },
-}
+})
 </script>
 
 <template>
   <h2>Login</h2>
+  <div>isAuthenticated {{ isAuthenticated }}</div>
+  <div>isLoading {{ isLoading }}</div>
   <div class="buttons">
     <button @click="login">Log in</button>
     <button @click="createAccount">Create account</button>

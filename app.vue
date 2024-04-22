@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <template>
   <NuxtLayout>
     <NuxtPage />

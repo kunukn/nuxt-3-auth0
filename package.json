@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@auth0/auth0-vue": "^2.3.3",
-    "axios": "^1.6.8",
+    "@nuxt/devtools": "^1.2.0",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3"
   },

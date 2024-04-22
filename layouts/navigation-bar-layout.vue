@@ -1,13 +1,15 @@
 <template>
   <Navigation />
   <div class="page">
-      <slot />
-    </div>
+    <slot />
+  </div>
 </template>
 
-<script>
-import Navigation from '~/components/Navigation.vue'
+<script lang="ts">
 export default {
   components: { Navigation },
+  onMounted() {
+    console.log('navigation-bar-layout')
+  },
 }
 </script>

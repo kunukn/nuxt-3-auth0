@@ -1,9 +1,9 @@
-<script>
-export default {
-  mounted() {
+<script lang="ts">
+export default defineComponent({
+  onMounted() {
     console.log('callback page')
   },
-}
+})
 </script>
 
 <template>
