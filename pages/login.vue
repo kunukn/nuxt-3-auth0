@@ -15,7 +15,6 @@ export default defineComponent({
             targetUrl: self.location.pathname,
             mode: 'login',
           },
-          acr_values: 'Consent_Accepted',
           authorizationParams: {
             acr_values: 'Consent_Accepted',
             redirect_uri: `${self.location.origin}?uiMode=login`,
@@ -28,7 +27,6 @@ export default defineComponent({
           appState: {
             mode: 'signup',
           },
-          acr_values: 'Consent_Accepted',
           authorizationParams: {
             acr_values: 'Consent_Accepted',
             redirect_uri: `${self.location.origin}/auth-callback?uiMode=signup`,
