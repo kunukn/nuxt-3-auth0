@@ -1,11 +1,11 @@
 # nuxt-3-auth0
 Playground for Nuxt 3 + Auth0
 
-`@auth0/auth0-vue` is used.
+`@auth0/auth0-vue` library is used.
 
 # Getting started
 
-## Auth flow
+## Auth flow in this demo.
 
 Authorize Code with PKCE.
 
@@ -13,6 +13,7 @@ Authorize Code with PKCE.
 
 - You need to have an Auth0 account with Auth0 apps.
 - The `.env` must be updated with values from the Auth0 settings.
+- The backend API must be running if API demo is wanted.
 
 ## Install steps:
 
@@ -31,10 +32,6 @@ npm run create-cert-files-in-folder # Creates the localhost certificates.
 npm start # Starts the app using https.
 ```
 
-## Thoughts
-
-You can use `'@auth0/auth0-spa-js'` and create a Vue wrapper if `@auth0/auth0-vue` is lacking req. features.
-
 # Auth setup
 
 https://auth0.com/
@@ -50,3 +47,10 @@ Login or create an account.
 ![applications-updated](./wiki/images/applications-updated.png)
 
 ![my-app-authorized](./wiki/images/my-app-authorized.png)
+
+![login](./wiki/images/login.png)
+
+
+## Thoughts
+
+You can use `'@auth0/auth0-spa-js'` and create a Vue wrapper if `@auth0/auth0-vue` is lacking req. features.
