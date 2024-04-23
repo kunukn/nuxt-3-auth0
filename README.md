@@ -5,7 +5,7 @@ Playground for Nuxt 3 + Auth0
 
 # Getting started
 
-App Demo
+Nuxt 3 Auth0 demo app.
 
 ![app demo](./wiki/images/app-demo.png)
 

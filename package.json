@@ -31,5 +31,11 @@
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3"
   },
-  "resolutions": {}
+  "resolutions": {},
+  "description": "Nuxt 3 Auth0 demo app",
+  "keywords": [
+    "vue",
+    "nuxt",
+    "auth0"
+  ]
 }
