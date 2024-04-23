@@ -29,11 +29,14 @@ npm install
 npm run create-env # creates a boilerplate .env file
 # Update the .env file with your Auth0 config data.
 
-npm run install-mkcert # Done once per OS, skip if has been done for your OS.
+npm run install-mkcert # Done with your normal OS account. Done once per OS, skip if has been done for your OS.
 
+# Works with Bash shell
 npm run create-cert-files-in-folder # Creates the localhost certificates.
 
-npm start # Starts the app using https.
+# Ensure your backend is running if API fetch is wanted.
+
+npm start # Starts the app using https. Done with your normal OS account.
 ```
 
 # Auth setup
