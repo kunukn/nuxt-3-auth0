@@ -12,13 +12,12 @@ export default defineComponent({
       login: () => {
         loginWithRedirect({
           appState: {
-            targetUrl: self.location.pathname,
-            mode: 'login',
+            targetUrl: self.location.pathname, // Take me there after login.
+            mode: 'login', // Custom thing for me, you properly don't need this.
           },
           authorizationParams: {
-            acr_values: 'Consent_Accepted',
             redirect_uri: `${self.location.origin}?uiMode=login`,
-            ui_locales: 'en',
+            ui_locales: 'en', // Custom thing for me, you properly don't need this.
           },
         })
       },
@@ -28,10 +27,9 @@ export default defineComponent({
             mode: 'signup',
           },
           authorizationParams: {
-            acr_values: 'Consent_Accepted',
             redirect_uri: `${self.location.origin}/auth-callback?uiMode=signup`,
             screen_hint: 'signup',
-            ui_locales: 'en',
+            ui_locales: 'en', // Custom thing for me, you properly don't need this.
           },
         })
       },
