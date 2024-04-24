@@ -12,11 +12,10 @@ export default defineComponent({
       login: () => {
         loginWithRedirect({
           appState: {
-            targetUrl: self.location.pathname, // Take me there after login.
-            mode: 'login', // Custom thing for me, you properly don't need this.
+            target: self.location.pathname, // Take me here as final destination.
           },
           authorizationParams: {
-            redirect_uri: `${self.location.origin}?uiMode=login`,
+            redirect_uri: `${self.location.origin}/auth-callback?uiMode=login`,
             ui_locales: 'en', // Custom thing for me, you properly don't need this.
           },
         })
@@ -24,11 +23,11 @@ export default defineComponent({
       createAccount: () => {
         loginWithRedirect({
           appState: {
-            mode: 'signup',
+            target: '/', // Take me here as final destination.
           },
           authorizationParams: {
             redirect_uri: `${self.location.origin}/auth-callback?uiMode=signup`,
-            screen_hint: 'signup',
+            screen_hint: 'signup', // https://auth0.com/docs/authenticate/login/auth0-universal-login/universal-login-vs-classic-login/universal-experience#signup
             ui_locales: 'en', // Custom thing for me, you properly don't need this.
           },
         })
