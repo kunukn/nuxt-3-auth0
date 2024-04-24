@@ -24,9 +24,7 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: [
-    '@nuxt/devtools',
-  ],
+  modules: ['@nuxt/devtools'],
   devServer: {
     https: {
       key: './.cert/key.pem',
@@ -36,5 +34,13 @@ export default defineNuxtConfig({
   css: ['~/assets/css/ress.min.css', '~/assets/css/main.css'],
   router: {
     middleware: ['router'],
+  },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en',
+        translate: 'no',
+      },
+    },
   },
 })
