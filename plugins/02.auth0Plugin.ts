@@ -16,8 +16,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Install the plugin
   nuxtApp.vueApp.use(auth0) // The Crux
-  // @ts-ignore
-  Global.$auth0 = useAuth0() // After install, it can be used correctly.
+  Global.auth0Config = auth0Config // Quick coding, probably put in a store if really needed.
 })
 
 function createAuthConfig(config: any) {

@@ -22,7 +22,8 @@ export default defineComponent({
   <div class="user-info">
     <p>isLoading: {{ isLoading }}</p>
     <p>isAuthenticated: {{ isAuthenticated }}</p>
-    <p>user: {{ user }}</p>
+    <p>user:</p>
+    <pre>{{ JSON.stringify(user, null, 1) }}</pre>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <p class="id-info">domain: {{ domain }}</p>
+  <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
   <nav>
     <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
     <NuxtLink to="/">Home</NuxtLink>
@@ -24,6 +25,7 @@ export default {
       isAuthenticated,
       user,
       domain: runtimeConfig.public.auth0.domain,
+      wellKnownUrl: `https://${runtimeConfig.public.auth0.domain}/.well-known/openid-configuration`,
       clickLogout: () => {
         logout({
           logoutParams: {
@@ -41,9 +43,9 @@ nav {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
   background: #f2f2f2;
-  padding: 1rem;
+  padding: 16px;
 }
 
 button {
