@@ -11,7 +11,11 @@ By showing the navigation bar in the /callback route, your user may feel that yo
 
 export default defineComponent({
   mounted() {
-    console.log('callback page')
+    console.log('auth callback page')
+    const urlParams = new URLSearchParams(window.location.search)
+    for (const param of urlParams) {
+      console.log(param)
+    }
   },
 })
 </script>
