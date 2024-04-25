@@ -1,4 +1,5 @@
 # nuxt-3-auth0
+
 Playground for Nuxt 3 + Auth0
 
 `@auth0/auth0-vue` library is used.
@@ -8,6 +9,14 @@ Playground for Nuxt 3 + Auth0
 Nuxt 3 Auth0 demo app.
 
 ![app demo](./wiki/images/app-demo.png)
+
+## Demo
+
+<table>
+<tr><td>Url</td><td><a href="https://nuxt-3-auth0.vercel.app/login">nuxt-3-auth0/login</a></td></tr>
+<tr><td>Username</td><td>hello@world.com</td></tr>
+<tr><td>Password</td><td>H3lloworld!</td></tr>
+</table>
 
 ## Auth flow in this demo.
 
@@ -56,7 +65,6 @@ Login or create an account.
 ![my-app-authorized](./wiki/images/my-app-authorized.png)
 
 ![login](./wiki/images/login.png)
-
 
 ## Thoughts
 
