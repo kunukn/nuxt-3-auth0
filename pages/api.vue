@@ -2,6 +2,7 @@
   <div>
     <div>
       <h1>External API</h1>
+      <h3>!! Only works on localhost, not deployed to PROD.</h3>
       <p class="mb-16px">
         Call an external API by clicking the button below. This will call the
         external API using an access token, and the API will validate it using
@@ -39,7 +40,7 @@ export default {
     const auth0 = useAuth0()
     const apiMessage = ref()
     const token = ref()
-    const urlText = ref('/appsettings')
+    const urlText = ref('/api/external')
     return {
       apiMessage,
       token,
@@ -52,8 +53,7 @@ export default {
         const accessToken = await auth0.getAccessTokenSilently()
         token.value = accessToken
         try {
-          const url = urlText.value
-          const result = await $fetch(url, {
+          const result = await $fetch(urlText.value, {
             method: 'GET',
             baseURL,
             headers: {
